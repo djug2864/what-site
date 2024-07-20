@@ -9,6 +9,83 @@
 <body>
 	<center><h3>どちらのサイトにアクセスしますか？</h3></center> 
 	<br><br><br><h2>Youtube検索</h2><br><br>
+	<form action='https://www.youtube.com/results?search_query=' class='gsc-search-box' target='_top'>
+<table cellpadding='0' cellspacing='0' class='gsc-search-box'>
+<tbody>
+<tr>
+<td class='gsc-input'>
+<input autocomplete='off' class='gsc-input' name='q' size='10' title='search' type='text' value=''/>
+</td>
+<td class='gsc-search-button'>
+<input class='gsc-search-button' title='search' type='submit' value='検索'/>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+
+	<Style>/* フォント設定 */
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* フォーム全体の設定 */
+.gsc-search-box {
+  width: 500px;
+  margin: 0 auto; /* 中央揃え */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 影 */
+}
+
+/* 入力欄の設定 */
+.gsc-input {
+  width: 450px;
+  height: 36px;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+/* 検索ボタンの設定 */
+.gsc-search-button {
+  width: 40px;
+  height: 36px;
+  background-color: #ff0000; /* 赤色に変更 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/* フォーム全体を画面いっぱいに広げる */
+.gsc-search-box {
+  position: fixed; /* 絶対配置にする */
+  top: 0; /* 上部を固定 */
+  left: 0; /* 左側を固定 */
+  width: 100vw; /* 横幅を画面幅100% */
+  z-index: 100; /* 重なり順を一番上に */
+}
+
+/* 入力欄の幅を調整 */
+.gsc-input {
+  width: calc(100% - 120px); /* 入力欄の幅を計算で設定 */
+}
+
+/* 検索ボタンの位置を調整 */
+.gsc-search-button {
+  position: absolute; /* 絶対配置にする */
+  top: 50%; /* 垂直方向に中央揃え */
+  transform: translateY(-50%); /* 垂直方向に中央揃え */
+  right: 20px; /* 右側に20pxの余白 */
+}
+/* フォーム全体の上下のパディング */
+.gsc-search-box {
+  padding: 10px; /* 上下の余白を10px (約1cm) に設定 */
+}
+
+
+
 	<center>
 			<select name="select" onChange="location.href=value;">
 <option value="">アクセス先を選択してください</option>
