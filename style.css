@@ -62,3 +62,21 @@ body {
   border-color: #999;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 }
+/*翻訳*/
+.translate-button {
+  position: relative;
+}
+
+.language-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 999;
+}
+
+.translate-button:hover .language-list {
+  display: block;
+}
