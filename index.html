@@ -24,24 +24,22 @@
 </tbody>
 </table>
 </form>
-<center>
-			<select name="select" id="lang-select" onChange="location.href=value;">
-<option value="">アクセス先を選択してください</option>
-<option disabled selected >☆ 動画配信サービス</option>
-<option value="https://m.youtube.com">Youtube</option>
-<option value="https://redirect.invidious.io/">invidious</option>
-<option value="https://www.tiktok.com/ja-JP/">TikTok</option>
-<option value="https://sp.nicovideo.jp/">Niconico</option>
-<option disabled selected >☆ SocialNetworkingService</option>
-<option value="https://x.com/">X(旧Twitter)</option>
-<option value="https://facebook.com/">Facebook</option>
-<option value="https://instagram.com/">Instagram</option>
-<option value="https://threads.net/">Threads</option>
-<option value="https://oneshotdiary.jp/">OneShotDiary</option>
-<option value="https://misskey.io/">Misskey.io</option>
-<option value="https://joinmastodon.org/ja/">Mastodon</option>
-			</select>
-	<center><div id="google_translate_element"></div>
+<center><button id="select">アクセスしたいサイトを選択してください</button></center>
+
+<div id="menuOverlay" class="overlay">
+<div id="menu" class="menu">
+<div class="menu-title">動画配信</div>
+<a href="https://youtube.com" class="menu-item">Youtube</a>
+<a href="https://music.youtube.com" class="menu-item">YT Music</a>
+<a href="https://sp.nicovideo.jp" class="menu-item">ニコニコ動画</a>
+<div class="menu-title">SNS</div>
+<a href="https://x.com" class="menu-item">X(旧Twitter)</a>
+<a href="https://facebook.com" class="menu-item">Facebook</a>
+<a href="https://instagram.com" class="menu-item">Instagram</a>
+<a href="https://threads.net" class="menu-item">Threads</a>
+<div id="closeButton" class="close-button">閉じる</div>
+</div>
+</div>	<center><div id="google_translate_element"></div>
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
@@ -128,3 +126,31 @@ body {
   padding: 10px; /* 上下の余白を10px (約1cm) に設定 */
 }
 		</Style>
+	<script>
+const showMenuButton = document.getElementById('select');
+const menuOverlay = document.getElementById('menuOverlay');
+const closeButton = document.getElementById('closeButton');
+
+showMenuButton.addEventListener('click', () => {
+  menuOverlay.style.display = 'flex';
+  setTimeout(() => {
+    menuOverlay.classList.add('active');
+  }, 10);
+});
+
+menuOverlay.addEventListener('click', (event) => {
+  if (event.target === menuOverlay) {
+    menuOverlay.classList.remove('active');
+    setTimeout(() => {
+      menuOverlay.style.display = 'none';
+    }, 300);
+  }
+});
+
+closeButton.addEventListener('click', () => {
+  menuOverlay.classList.remove('active');
+  setTimeout(() => {
+    menuOverlay.style.display = 'none';
+  }, 300);
+});
+	</script>
